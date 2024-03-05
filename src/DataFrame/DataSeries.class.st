@@ -384,6 +384,24 @@ secondDataFrame:=aCollection second."
 ]
 
 { #category : 'as yet unclassified' }
+DataSeries >> divide: aCollection replaceNilWith:anArg [
+  |firstDataFrame secondDataFrame result|
+"firstDataFrame:= aCollection first.
+secondDataFrame:=aCollection second."
+"^self/aCollection"
+result:=self/aCollection.
+(anArg=#mean)ifTrue: [ result:=result replaceNilsWithAverage].
+(anArg=#median)ifTrue: [ result:=result replaceNilsWithMedian].
+(anArg=#mode)ifTrue: [ result:=result replaceNilsWithMode].
+(anArg=#zero)ifTrue: [ result:=result replaceNilsWithZero].
+(anArg=Integer) ifTrue: [ result:=result replaceNilsWith: anArg].
+
+^result
+
+
+]
+
+{ #category : 'as yet unclassified' }
 DataSeries >> divide: aCollection replaceNilsWith:anArg [
   |result|
 result:=self/aCollection.
@@ -408,7 +426,7 @@ DataSeries >> eighth [
 	^ self atIndex: 8
 ]
 
-{ #category : 'converting' }
+{ #category : 'as yet unclassified' }
 DataSeries >> encodeOneHot [
 	"Encode the values of the DataSeries into one-hot vectors."
 
