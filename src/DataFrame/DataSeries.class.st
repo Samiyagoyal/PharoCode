@@ -375,6 +375,29 @@ DataSeries >> defaultPrecision [
 	^ 0.0001
 ]
 
+{ #category : 'as yet unclassified' }
+DataSeries >> divide: aCollection [
+  |firstDataFrame secondDataFrame|
+"firstDataFrame:= aCollection first.
+secondDataFrame:=aCollection second."
+^self/aCollection
+]
+
+{ #category : 'as yet unclassified' }
+DataSeries >> divide: aCollection replaceNilsWith:anArg [
+  |result|
+result:=self/aCollection.
+(anArg=#mean)ifTrue: [ result:=result replaceNilsWithAverage].
+(anArg=#median)ifTrue: [ result:=result replaceNilsWithMedian].
+(anArg=#mode)ifTrue: [ result:=result replaceNilsWithMode].
+(anArg=#zero)ifTrue: [ result:=result replaceNilsWithZero].
+(anArg isKindOf: Number) ifTrue: [ result:=result replaceNilsWith: anArg].
+
+^result
+
+
+]
+
 { #category : 'accessing' }
 DataSeries >> eighth [
 	"Answer the eighth element of the receiver.

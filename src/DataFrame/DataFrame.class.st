@@ -2577,7 +2577,7 @@ DataFrame >> stdev [
 	^ self applyToAllColumns: #stdev
 ]
 
-{ #category : #statistics }
+{ #category : 'statistics' }
 DataFrame >> summary [
 	| summaryFrame |
 	summaryFrame := nil.
@@ -2590,7 +2590,7 @@ DataFrame >> summary [
 	^ summaryFrame
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DataFrame >> tail [
 	"Returns the last 5 rows of a DataFrame"
 	
