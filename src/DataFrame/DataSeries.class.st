@@ -426,7 +426,7 @@ DataSeries >> eighth [
 	^ self atIndex: 8
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'converting' }
 DataSeries >> encodeOneHot [
 	"Encode the values of the DataSeries into one-hot vectors."
 
